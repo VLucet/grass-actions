@@ -32,6 +32,10 @@ runs:
 
     - run: ${{ !startsWith(inputs.os, 'ubuntu') }} || setup-grass/ubuntu.sh \
               echo "$HOME/install/bin" >> $GITHUB_PATH \
+              echo $GITHUB_PATH \
+              ls $HOME \
+              ls $HOME/install \
+              ls $HOME/install/bin \
               .github/workflows/test_simple.sh
       shell: bash
 
