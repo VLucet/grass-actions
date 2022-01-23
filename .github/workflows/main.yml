@@ -1,14 +1,21 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  install-grass:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    strategy:
+      matrix:
+        grass: [ '7', '8' ]
+    
+    name: Install GRASS
     steps:
+
       - uses: actions/checkout@v2
+
       - id: foo
         uses: vlucet/grass-actions/setup-grass@v1.04
         with:
-          grass-version: '7'
+          grass-version: ${{ matrix.grass }}
+
       - run: echo installed-grass-version ${{ steps.foo.outputs.installed-grass-version }}
         shell: bash
