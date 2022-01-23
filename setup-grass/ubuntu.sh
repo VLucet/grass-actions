@@ -15,10 +15,10 @@ echo "MAKEFLAGS=-j$(nproc)" >> $GITHUB_ENV
 echo "LD_LIBRARY_PATH=$HOME/install/lib" >> $GITHUB_ENV
 
 # Build GRASS GIS
-grass/.github/workflows/build.sh
+grass/.github/workflows/build.sh $HOME/install
 
 # Add th binary directory to PATH
 echo "$HOME/install/bin" >> $GITHUB_PATH
 
 # Tests
-test_simple.sh
+grass/.github/workflows/test_simple.sh
