@@ -17,6 +17,7 @@ jobs:
         uses: vlucet/grass-actions/setup-grass@v1.06
         with:
           grass-version: ${{ matrix.grass }}
+          os: ${{ matrix.os }}
 
       - run: echo installed-grass-version ${{ steps.foo.outputs.installed-grass-version }}
         shell: bash
