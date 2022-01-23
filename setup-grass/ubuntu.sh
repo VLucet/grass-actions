@@ -7,6 +7,7 @@ sudo apt-get install -y --no-install-recommends --no-install-suggests
 
 # Install dependencies
 sudo apt install -y libzstd-dev
+sudo apt install -y proj
 
 # Create Install directory
 mkdir $HOME/install
