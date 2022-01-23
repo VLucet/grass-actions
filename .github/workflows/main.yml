@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - id: setup
-        uses: vlucet/grass-actions/setup-grass@v1.13
+        uses: vlucet/grass-actions/setup-grass
         with:
           grass-version: ${{ matrix.grass }}
           os: ${{ matrix.os }}
