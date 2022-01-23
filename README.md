@@ -1,4 +1,4 @@
-## grass-actions
+# GRASS Actions
 
 This action installs GRASS.
 
