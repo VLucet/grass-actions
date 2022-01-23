@@ -6,7 +6,7 @@ jobs:
     strategy:
       matrix:
         grass: [ '7_8', '8_0' ]
-        os: [ 'ubuntu-latest', 'windows-latest', 'macOS-latest' ]
+        os: [ 'ubuntu-latest' ] # , 'windows-latest', 'macOS-latest' 
     
     name: Install GRASS
     steps:

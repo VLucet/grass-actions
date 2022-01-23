@@ -27,7 +27,7 @@ runs:
         ref: 'releasebranch_${{ inputs.grass-version }}'
         path: 'grass'
 
-    - run: ls grass -a
+    - run: ls grass/.github/workflows -a
       shell: bash
 
     - run: ${{ !startsWith(inputs.os, 'ubuntu') }} || setup-grass/ubuntu.sh
