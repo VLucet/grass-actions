@@ -9,6 +9,7 @@ sudo apt-get install -y --no-install-recommends --no-install-suggests
 sudo apt install -y libzstd-dev
 sudo apt install -y proj
 sudo apt install -y libgdal-dev
+sudo apt install -y freeglut3-dev
 
 # Create Install directory
 mkdir $HOME/install
