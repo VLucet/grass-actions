@@ -2,10 +2,11 @@ on: [push]
 
 jobs:
   install-grass:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         grass: [ '7', '8' ]
+        os: [ 'ubuntu-latest', 'windows-latest', 'macOS-latest' ]
     
     name: Install GRASS
     steps:
