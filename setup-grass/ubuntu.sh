@@ -7,6 +7,7 @@ sudo apt-get install -y --no-install-recommends --no-install-suggests
 
 # Create Install directory
 mkdir $HOME/install
+cd grass
 
 # Set number of cores for compilation
 echo "MAKEFLAGS=-j$(nproc)" >> $GITHUB_ENV
@@ -22,3 +23,6 @@ echo "$HOME/install/bin" >> $GITHUB_PATH
 
 # Tests
 grass/.github/workflows/test_simple.sh
+
+# Move back home
+cd $HOME
