@@ -5,8 +5,9 @@ cd grass
 
 # Get dependencites
 sudo apt-get update -y
-sudo apt-get install -y wget git gawk findutils xargs <(awk '! /^ *(#|$)/' ".github/workflows/apt.txt") -r -- \
-sudo apt-get install -y --no-install-recommends --no-install-suggests
+sudo apt-get install -y wget git gawk findutils 
+xargs -a <(awk '! /^ *(#|$)/' ".github/workflows/apt.txt") -r -- \
+    sudo apt-get install -y --no-install-recommends --no-install-suggests
 
 # Install dependencies
 # sudo apt install -y libzstd-dev
