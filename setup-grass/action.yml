@@ -30,7 +30,9 @@ runs:
     # - run: ls grass/.github/workflows -a
     #   shell: bash
 
-    - run: ${{ !startsWith(inputs.os, 'ubuntu') }} || setup-grass/ubuntu.sh
+    - run: ${{ !startsWith(inputs.os, 'ubuntu') }} || setup-grass/ubuntu.sh \
+              echo "$HOME/install/bin" >> $GITHUB_PATH \
+              .github/workflows/test_simple.sh
       shell: bash
 
     - run: ${{ !startsWith(inputs.os, 'mac') }} || echo Hello macOS ${{ inputs.grass-version }}.
