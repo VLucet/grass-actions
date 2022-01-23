@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: foo
-        uses: vlucet/grass-actions/actions/setup-grass@v1.01
+        uses: vlucet/grass-actions/setup-grass@v1.02
         with:
           grass-version: '7'
       - run: echo installed-grass-version ${{ steps.foo.outputs.version }}
