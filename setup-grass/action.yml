@@ -1,12 +1,17 @@
 name: 'Setup GRASS environment'
 
 description: 'Install GRASS on system and setup environment'
+author: 'Valentin Lucet'
 
 inputs:
   grass-version:  
     description: 'Version of GRASS to install'
     required: true
     default: '7'
+  os:
+    description: 'Runner OS'
+    required: true
+    default: 'ubuntu-latest'
 
 outputs:
   installed-grass-version:
@@ -17,13 +22,11 @@ runs:
   using: 'composite'
   steps:
 
-    if: runner.os == 'Linux'
-      - run: echo Hello Linux ${{ inputs.grass-version }}.
-        shell: bash
+    - run: ${{ !startsWith(os, 'ubuntu') }} || echo Hello Ubuntu ${{ inputs.grass-version }}.
+      shell: bash
 
-    if: runner.os == 'macOS'
-      - run: echo Hello macOS ${{ inputs.grass-version }}.
-        shell: bash
+    - run: ${{ !startsWith(os, 'mac') }} || echo Hello macOS ${{ inputs.grass-version }}.
+      shell: bash
 
     - id: verify-installed-grass-version
       run: echo "::set-output name=installed-grass-version::$(echo $RANDOM)"
