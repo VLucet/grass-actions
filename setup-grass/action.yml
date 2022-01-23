@@ -7,14 +7,15 @@ inputs:
     default: '7'
 outputs:
   installed-grass-version:
-    value: ${{ steps.verify-grass-version.outputs.version }}
+    description: 'Version of GRASS installed'
+    value: ${{ steps.verify-installed-grass-version.outputs.installed-grass-version }}
 runs:
   using: 'composite'
   steps:
     - run: echo Hello ${{ inputs.grass-version }}.
       shell: bash
-    - id: verify-grass-version
-      run: echo "::set-output name=version::$(echo $RANDOM)"
+    - id: verify-installed-grass-version
+      run: echo "::set-output name=installed-grass-version::$(echo $RANDOM)"
       shell: bash
     - run: ${{ github.action_path }}/goodbye.sh
       shell: bash

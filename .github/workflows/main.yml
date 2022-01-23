@@ -10,5 +10,5 @@ jobs:
         uses: vlucet/grass-actions/setup-grass@v1.02
         with:
           grass-version: '7'
-      - run: echo installed-grass-version ${{ steps.foo.outputs.version }}
+      - run: echo installed-grass-version ${{ steps.foo.outputs.installed-grass-version }}
         shell: bash
