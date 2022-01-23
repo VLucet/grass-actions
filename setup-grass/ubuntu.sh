@@ -15,7 +15,7 @@ echo "MAKEFLAGS=-j$(nproc)" >> $GITHUB_ENV
 echo "LD_LIBRARY_PATH=$HOME/install/lib" >> $GITHUB_ENV
 
 # Build GRASS GIS
-../../grass/.github/workflows/build_ubuntu-20.04.sh
+grass/.github/workflows/build_ubuntu-20.04.sh
 
 # Add th binary directory to PATH
 echo "$HOME/install/bin" >> $GITHUB_PATH
