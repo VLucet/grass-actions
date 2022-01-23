@@ -22,10 +22,10 @@ runs:
   using: 'composite'
   steps:
 
-    - run: ${{ !startsWith(os, 'ubuntu') }} || echo Hello Ubuntu ${{ inputs.grass-version }}.
+    - run: ${{ !startsWith(${{ inputs.os }}, 'ubuntu') }} || echo Hello Ubuntu ${{ inputs.grass-version }}.
       shell: bash
 
-    - run: ${{ !startsWith(os, 'mac') }} || echo Hello macOS ${{ inputs.grass-version }}.
+    - run: ${{ !startsWith(${{ inputs.os }}, 'mac') }} || echo Hello macOS ${{ inputs.grass-version }}.
       shell: bash
 
     - id: verify-installed-grass-version
