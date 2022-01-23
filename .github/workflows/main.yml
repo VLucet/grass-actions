@@ -5,7 +5,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        grass: [ '7', '8' ]
+        grass: [ '7_8', '8_0' ]
         os: [ 'ubuntu-latest', 'windows-latest', 'macOS-latest' ]
     
     name: Install GRASS
@@ -13,11 +13,11 @@ jobs:
 
       - uses: actions/checkout@v2
 
-      - id: foo
+      - id: setup
         uses: vlucet/grass-actions/setup-grass@v1.11
         with:
           grass-version: ${{ matrix.grass }}
           os: ${{ matrix.os }}
 
-      - run: echo installed-grass-version ${{ steps.foo.outputs.installed-grass-version }}
+      - run: echo installed-grass-version ${{ steps.setup.outputs.installed-grass-version }}
         shell: bash

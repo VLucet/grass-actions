@@ -7,11 +7,10 @@ inputs:
   grass-version:  
     description: 'Version of GRASS to install'
     required: true
-    default: '7'
+    default: '7_8'
   os:
     description: 'Runner OS'
     required: true
-    default: 'ubuntu-latest'
 
 outputs:
   installed-grass-version:
@@ -21,6 +20,14 @@ outputs:
 runs:
   using: 'composite'
   steps:
+
+    - uses: actions/checkout@v2
+      repository: 'OSGeo/grass' 
+      ref: 'releasebranch_${{ inputs.grass-version }}'
+      path: 'grass'
+
+    - run: ls
+      shell: bash
 
     - run: ${{ !startsWith(inputs.os, 'ubuntu') }} || echo Hello Ubuntu ${{ inputs.grass-version }}.
       shell: bash
