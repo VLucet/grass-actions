@@ -5,6 +5,9 @@ sudo apt-get update -y
 sudo apt-get install -y wget git gawk findutils xargs -a <(awk '! /^ *(#|$)/' "grass/.github/workflows/apt.txt") -r -- \
 sudo apt-get install -y --no-install-recommends --no-install-suggests
 
+# Install dependencies
+sudo apt install -y libzstd-dev
+
 # Create Install directory
 mkdir $HOME/install
 cd grass
@@ -18,7 +21,7 @@ echo "LD_LIBRARY_PATH=$HOME/install/lib" >> $GITHUB_ENV
 # Build GRASS GIS
 .github/workflows/build.sh $HOME/install
 
-# Add th binary directory to PATH
+# Add the binary directory to PATH
 echo "$HOME/install/bin" >> $GITHUB_PATH
 
 # Tests
