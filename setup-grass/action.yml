@@ -30,7 +30,7 @@ runs:
     - run: ls
       shell: bash
 
-    - run: ${{ !startsWith(inputs.os, 'ubuntu') }} || ubuntu.sh.
+    - run: ${{ !startsWith(inputs.os, 'ubuntu') }} || ubuntu.sh
       shell: bash
 
     - run: ${{ !startsWith(inputs.os, 'mac') }} || echo Hello macOS ${{ inputs.grass-version }}.
