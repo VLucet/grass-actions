@@ -1,0 +1,20 @@
+name: 'Setup GRASS environment'
+description: 'Install GRASS on system and setup environment'
+inputs:
+  grass-version:  
+    description: 'Version of GRASS to install'
+    required: true
+    default: '7'
+outputs:
+  installed-grass-version:
+    value: ${{ steps.verify-grass-version.outputs.version }}
+runs:
+  using: 'composite'
+  steps:
+    - run: echo Hello ${{ inputs.grass-version }}.
+      shell: bash
+    - id: verify-grass-version
+      run: echo "::set-output name=version::$(echo $RANDOM)"
+      shell: bash
+    - run: ${{ github.action_path }}/goodbye.sh
+      shell: bash
