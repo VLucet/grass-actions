@@ -13,7 +13,7 @@ This action installs GRASS.
 ## Example usage
 
 ```
-uses: vlucet/grass-actions/actions/setup-grass@v1.01
+uses: vlucet/grass-actions/setup-grass@v1.02
 with:
   grass-version: '7'
 ```
