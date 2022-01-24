@@ -44,6 +44,7 @@ runs:
         echo "$HOME/install/bin" >> $GITHUB_PATH
         echo $GITHUB_PATH
         .github/workflows/test_simple.sh
+      shell: bash
 
     - run: ${{ !startsWith(inputs.os, 'mac') }} || echo Hello macOS ${{ inputs.grass-version }}.
       shell: bash
