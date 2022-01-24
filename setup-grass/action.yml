@@ -40,9 +40,10 @@ runs:
       shell: bash
 
     - id: build-grass-ubuntu
-      run: ${{ !startsWith(inputs.os, 'ubuntu') }} || (setup-grass/ubuntu.sh && \
-              echo "$HOME/install/bin" >> $GITHUB_PATH && \
-              grass/.github/workflows/test_simple.sh)
+      run: |
+        ${{ !startsWith(inputs.os, 'ubuntu') }} || (setup-grass/ubuntu.sh && \
+        echo "$HOME/install/bin" >> $GITHUB_PATH && \
+        grass/.github/workflows/test_simple.sh)
       shell: bash
 
     # - id: test-grass-ubuntu
