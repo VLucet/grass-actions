@@ -40,25 +40,23 @@ runs:
       shell: bash
 
     - id: build-grass-ubuntu
-      run: ${{ !startsWith(inputs.os, 'ubuntu') }} || setup-grass/ubuntu.sh
+      run: ${{ !startsWith(inputs.os, 'ubuntu') }} || setup-grass/ubuntu.sh && \
+              echo "$HOME/install/bin" >> $GITHUB_PATH && \
+              grass/.github/workflows/test_simple.sh
       shell: bash
 
-    - id: test-grass-ubuntu
-      run: |
-        ls $HOME
-        ls $HOME/install
-        ls $HOME/install/bin
-        echo "$HOME/install/bin" >> $GITHUB_PATH
-        echo $GITHUB_PATH
-        .github/workflows/test_simple.sh
-      shell: bash
+    # - id: test-grass-ubuntu
+    #   run: |
+    #     echo "$HOME/install/bin" >> $GITHUB_PATH
+    #     .github/workflows/test_simple.sh
+    #   shell: bash
 
     - run: ${{ !startsWith(inputs.os, 'mac') }} || echo Hello macOS ${{ inputs.grass-version }}.
       shell: bash
 
-    - id: verify-installed-grass-version
-      run: echo "::set-output name=installed-grass-version::$(echo $RANDOM)"
-      shell: bash
+    # - id: verify-installed-grass-version
+    #   run: echo "::set-output name=installed-grass-version::$(echo $RANDOM)"
+    #   shell: bash
 
-    - run: ${{ github.action_path }}/goodbye.sh
-      shell: bash
+    # - run: ${{ github.action_path }}/goodbye.sh
+    #   shell: bash
