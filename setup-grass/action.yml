@@ -32,11 +32,17 @@ runs:
 
     # ${{ !startsWith(inputs.os, 'ubuntu') }} || setup-grass/ubuntu.sh
 
-    - id: build-grass
+    - id: setup-env
+      run: |
+        mkdir $HOME/install
+        echo "MAKEFLAGS=-j$(nproc)" >> $GITHUB_ENV
+        echo "LD_LIBRARY_PATH=$HOME/install/lib" >> $GITHUB_ENV
+
+    - id: build-grass-ubuntu
       run: ${{ !startsWith(inputs.os, 'ubuntu') }} || setup-grass/ubuntu.sh
       shell: bash
 
-    - id: test-grass
+    - id: test-grass-ubuntu
       run: |
         ls $HOME
         ls $HOME/install
