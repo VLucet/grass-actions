@@ -45,7 +45,7 @@ runs:
         echo "$HOME/install/bin" >> $GITHUB_PATH && \
         echo $GITHUB_PATH && \
         $HOME/install/bin/grass78 -h \
-        grass/.github/workflows/test_simple.sh)
+        grass/.github/workflows/test_thorough.sh)
       shell: bash
 
     # - id: test-grass-ubuntu
