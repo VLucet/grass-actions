@@ -30,12 +30,12 @@ runs:
     # - run: ls grass/.github/workflows -a
     #   shell: bash
 
-    - run: ${{ !startsWith(inputs.os, 'ubuntu') }} || setup-grass/ubuntu.sh && \ 
-              echo "$HOME/install/bin" >> $GITHUB_PATH && \
-              echo $GITHUB_PATH && \
+    - run: ${{ !startsWith(inputs.os, 'ubuntu') }} || setup-grass/ubuntu.sh && \
               ls $HOME && \
               ls $HOME/install && \
               ls $HOME/install/bin && \
+              echo "$HOME/install/bin" >> $GITHUB_PATH && \
+              echo $GITHUB_PATH && \
               .github/workflows/test_simple.sh
       shell: bash
 
