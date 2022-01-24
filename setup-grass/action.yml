@@ -43,7 +43,8 @@ runs:
       run: |
         ${{ !startsWith(inputs.os, 'ubuntu') }} || (setup-grass/ubuntu.sh && \
         echo "$HOME/install/bin" >> $GITHUB_PATH && \
-        grass -h \
+        echo $GITHUB_PATH && \
+        $HOME/install/bin/grass78 -h \
         grass/.github/workflows/test_simple.sh)
       shell: bash
 
