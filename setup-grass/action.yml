@@ -48,11 +48,12 @@ runs:
         grass/.github/workflows/test_thorough.sh)
       shell: bash
 
-    # - id: test-grass-ubuntu
-    #   run: |
-    #     echo "$HOME/install/bin" >> $GITHUB_PATH
-    #     .github/workflows/test_simple.sh
-    #   shell: bash
+    - id: test-grass-ubuntu
+      run: |
+        grass78 --tmp-location XY --exec g.extension g.download.location
+        grass78 --tmp-location XY --exec g.download.location url=http://fatra.cnr.ncsu.edu/data/nc_spm_full_v2alpha2.tar.gz dbase=$HOME
+        grass78 --tmp-location XY --exec python3 -m grass.gunittest.main --grassdata $HOME --location nc_spm_full_v2alpha2 --location-type nc --min-success 90
+      shell: bash
 
     - run: ${{ !startsWith(inputs.os, 'mac') }} || echo Hello macOS ${{ inputs.grass-version }}.
       shell: bash
