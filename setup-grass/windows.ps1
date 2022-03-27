@@ -1,6 +1,6 @@
 #!/usr/bin/env pwsh
 
-CD grass/
+# CD grass/
 
 # Install OSGeo4W
 $exe = 'osgeo4w-setup.exe'
