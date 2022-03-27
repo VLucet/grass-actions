@@ -47,8 +47,8 @@ runs:
 
     - id: test-grass-ubuntu
       run: |
-        ${{ !startsWith(inputs.os, 'ubuntu') }} || ($HOME/install/bin/grass78 -h && \
-        grass78 --tmp-location EPSG:4326 --exec g.region res=0.1 -p)
+        ${{ !startsWith(inputs.os, 'ubuntu') }} || ($HOME/install/bin/grass -h && \
+        grass --tmp-location EPSG:4326 --exec g.region res=0.1 -p)
       shell: bash
 
     - id: build-grass-windows
