@@ -51,7 +51,7 @@ runs:
         grass78 --tmp-location EPSG:4326 --exec g.region res=0.1 -p)
       shell: bash
 
-      - id: build-grass-windows
+    - id: build-grass-windows
       run: |
         ${{ !startsWith(inputs.os, 'windows') }} || setup-grass/windows.ps1
       shell: pwsh
