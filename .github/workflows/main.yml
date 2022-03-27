@@ -6,7 +6,7 @@ jobs:
     strategy:
       matrix:
         grass: [ '7_8' ] # , '8_0' 
-        os: [ 'ubuntu-latest' ] # , 'windows-latest', 'macOS-latest'
+        os: [ 'ubuntu-latest' , 'windows-latest' ] # , 'windows-latest', 'macOS-latest'
     
     name: Install GRASS
     steps:
@@ -19,5 +19,5 @@ jobs:
           grass-version: ${{ matrix.grass }}
           os: ${{ matrix.os }}
 
-      - run: echo ${{ steps.setup.outputs.grass-version }}
-        shell: bash
+      # - run: echo ${{ steps.setup.outputs.installed-grass-version }}
+      #   shell: bash
