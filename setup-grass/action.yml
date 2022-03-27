@@ -47,8 +47,10 @@ runs:
 
     - id: test-grass-ubuntu
       run: |
-        ${{ !startsWith(inputs.os, 'ubuntu') }} || ($HOME/install/bin/grass -h && \
-        grass --tmp-location EPSG:4326 --exec g.region res=0.1 -p)
+        ${{ !startsWith(inputs.grass-version, '7') }} || GRASS=$HOME/install/bin/grass78 && \
+        ${{ !startsWith(inputs.grass-version, '8') }} || GRASS=$HOME/install/bin/grass8 &&
+        ${{ !startsWith(inputs.os, 'ubuntu') }} || ($GRASS -h && \
+        $GRASS --tmp-location EPSG:4326 --exec g.region res=0.1 -p)
       shell: bash
 
     - id: build-grass-windows
