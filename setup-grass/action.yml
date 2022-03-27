@@ -7,7 +7,7 @@ inputs:
   grass-version:  
     description: 'Version of GRASS to install'
     required: true
-    default: '7_8'
+    default: '8_0'
   os:
     description: 'Runner OS'
     required: true
