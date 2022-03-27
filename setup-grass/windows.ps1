@@ -6,6 +6,7 @@ CD grass/
 $exe = 'osgeo4w-setup.exe'
 $url = 'http://download.osgeo.org/osgeo4w/v2/' + $exe
 (New-Object System.Net.WebClient).DownloadFile($url, $exe)
+dir
 Start-Process ('.\'+$exe) -ArgumentList '-A -g -k -q -s http://download.osgeo.org/x86_64 -P proj-devel,gdal-devel,geos-devel,libtiff-devel,libpng-devel,pdal-devel,netcdf-devel,cairo-devel,fftw,freetype-devel,gdal-ecw,gdal-mrsid,liblas-devel,libxdr,libpq-devel,pdcurses,python3-matplotlib,python3-numpy,python3-ply,python3-pywin32,python3-six,python3-wxpython,regex-devel,wxwidgets-devel,zstd-devel' -Wait
 
 # Install MSYS2 packages
