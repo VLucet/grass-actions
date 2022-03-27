@@ -10,7 +10,7 @@ xargs -a <(awk '! /^ *(#|$)/' ".github/workflows/apt.txt") -r -- \
     sudo apt-get install -y --no-install-recommends --no-install-suggests
 
 # Build GRASS GIS
-.github/workflows/build.sh $HOME/install
+.github/workflows/build_ubuntu-20.04.sh $HOME/install
 
 # Move back home
 cd $HOME
