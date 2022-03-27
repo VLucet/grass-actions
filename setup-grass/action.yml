@@ -47,15 +47,16 @@ runs:
 
     - id: test-grass-ubuntu
       run: |
-        ls $HOME/install/bin &&
         ${{ !startsWith(inputs.grass-version, '7') }} || GRASS=$HOME/install/bin/grass78 && \
-        ${{ !startsWith(inputs.grass-version, '8') }} || GRASS=$HOME/install/bin/grass &&
+        ${{ !startsWith(inputs.grass-version, '8') }} || GRASS=$HOME/install/bin/grass && \
         ${{ !startsWith(inputs.os, 'ubuntu') }} || ($GRASS -h && \
         $GRASS --tmp-location EPSG:4326 --exec g.region res=0.1 -p)
       shell: bash
 
     - id: build-grass-windows
       run: |
+        git config --global core.autocrlf false
+        git config --global core.eol lf
         ${{ !startsWith(inputs.os, 'windows') }} || setup-grass/windows.ps1
       shell: pwsh
 
