@@ -53,6 +53,9 @@ runs:
 
     - run: ${{ !startsWith(inputs.os, 'mac') }} || echo Hello macOS ${{ inputs.grass-version }}.
       shell: bash
+    
+    - run: ${{ !startsWith(inputs.os, 'windows') }} || echo Hello windows ${{ inputs.grass-version }}.
+      shell: bash
 
     # - id: verify-installed-grass-version
     #   run: echo "::set-output name=installed-grass-version::$(echo $RANDOM)"
