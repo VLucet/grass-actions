@@ -47,6 +47,7 @@ runs:
 
     - id: test-grass-ubuntu
       run: |
+        ls $HOME/install/bin &&
         ${{ !startsWith(inputs.grass-version, '7') }} || GRASS=$HOME/install/bin/grass78 && \
         ${{ !startsWith(inputs.grass-version, '8') }} || GRASS=$HOME/install/bin/grass &&
         ${{ !startsWith(inputs.os, 'ubuntu') }} || ($GRASS -h && \
