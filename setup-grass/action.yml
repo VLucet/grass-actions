@@ -41,7 +41,7 @@ runs:
 
     - id: build-grass-ubuntu
       run: |
-        ${{ !startsWith(inputs.os, 'ubuntu') }} || (setup-grass/ubuntu.sh && \
+        ${{ !startsWith(inputs.os, 'ubuntu') }} || (${{ github.action_path	}}/setup-grass/ubuntu.sh && \
         echo "$HOME/install/bin" >> $GITHUB_PATH)
       shell: bash
 
@@ -57,7 +57,7 @@ runs:
       run: |
         git config --global core.autocrlf false
         git config --global core.eol lf
-        ${{ !startsWith(inputs.os, 'windows') }} || setup-grass/windows.ps1
+        ${{ !startsWith(inputs.os, 'windows') }} || ${{ github.action_path }}/setup-grass/windows.ps1
       shell: pwsh
 
     # - id: test-grass-windows
